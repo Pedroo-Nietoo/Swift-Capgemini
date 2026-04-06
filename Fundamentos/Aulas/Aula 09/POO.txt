@@ -1,0 +1,771 @@
+// UUID -> ID dinâmico
+//import Foundation
+//
+//struct Produto {
+//    let teste = UUID
+//    // Atributos
+//    var codigo: UUID = UUID()
+//    var nome: String
+//    var valor: Double
+//
+//    // Reescrever o construtor
+//    init(_ nome: String, _ valor: Double) {
+//        self.nome = nome
+//        self.valor = valor
+//    }
+//}
+//
+//let produto1 = Produto("MacBook Air", 9800.00)
+//let produto2 = Produto("iPhone 17", 11700.00)
+//
+//print(produto1)
+//print(produto2)
+
+
+
+
+
+// EXTENSIONS (PARTE 2)
+//let numeros: [Int] = [6, 11, 42, 7, 9]
+//let palavras: [String] = ["Swift", "Programação", "Aprender"]
+//
+//extension Array where Element == Int {
+//    var quantidadePares: Int {
+//        return self.filter { $0 % 2 == 0 }.count
+//    }
+//}
+//
+//print(numeros.quantidadePares)
+
+
+
+
+
+
+
+
+
+
+
+
+//extension Int {
+//    // var/let -> Caso não sejam utilizados parâmetros
+//    // func    -> Caso seja necessário trabalhar com parâmetros
+//    var verificarIdade: String {
+//        return self >= 18 ? "Maior de idade" : "Menor de idade"
+//    }
+//}
+//
+//print(18.verificarIdade)
+//print(15.verificarIdade)
+
+
+
+
+
+
+
+
+
+// GENERICS
+//func verificarTipo<T>(_ valor: T) -> Void {
+//
+//    // Condicional
+//    if(valor is String) {
+//        print("Valor do tipo String")
+//    } else if(valor is Int) {
+//        print("Valor do tipo Int")
+//    } else {
+//        print("O valor é diferente de String ou Int")
+//    }
+//
+//}
+//
+//verificarTipo("Swift")
+//verificarTipo(6)
+//verificarTipo(true)
+
+
+// TRATATIVA DE EXCEÇÃO
+//1º Definir o erro
+//enum ErroDeDivisao: Error {
+//    case divisaoPorZero
+//}
+//
+//2º Função que terá acesso ao Enum
+//func dividir(_ numero1: Int, _ numero2: Int) throws -> Int {
+//    if(numero2 == 0) {
+//        throw ErroDeDivisao.divisaoPorZero
+//    }
+//
+//    return numero1 / numero2
+//}
+//
+//3 Executar função
+//do {
+//    let resultado = try dividir(10, 0)
+//    print(resultado)
+//} catch {
+//    print("Falha \(error)")
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// EXTENSIONS | CLASS E STRUCT (PARTE 1)
+//extension ExecutarCalculos {
+//
+//    func multiplicar(numero1: Int, numero2: Int) -> Int {
+//        return numero1 * numero2
+//    }
+//
+//}
+
+
+
+// PROTOCOLS - INTERFACE
+/*
+    1º Especifica funções obrigatórias.
+    2º Interfaces não podem possuir atributos/variáveis, protocols podem.
+    3º Permite "herança" múltipla, pois você implementa.
+    4º Permite ser utilizado em classes e structs.
+ 
+    POP -> Programação Orientada a Protocolos.
+*/
+
+//protocol CalculosObrigatorios {
+//
+//    func somar(numero1: Int, numero2: Int) -> Int
+//
+//    func subtrair(numero1: Int, numero2: Int) -> Int
+//
+//}
+//
+//class ExecutarCalculos: CalculosObrigatorios {
+//    func somar(numero1: Int, numero2: Int) -> Int {
+//        return 0
+//    }
+//
+//    func subtrair(numero1: Int, numero2: Int) -> Int {
+//        return 0
+//    }
+//}
+
+
+//let obj = ExecutarCalculos()
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ABSTRAÇÃO
+// NÃO EXISTE ABSTRAÇÃO NO SWIFT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DEINIT - Destrutor | Funciona apenas em classes
+//class Pessoa {
+//
+//    // Construtor
+//    init() {
+//        print("Construtor em ação!")
+//    }
+//
+//    // Destrutor
+//    deinit {
+//        print("Destrutor em ação!")
+//    }
+//
+//}
+//
+//let obj = Pessoa()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ATIVIDADES POO - LISTA 01
+// 1
+//class Aluno {
+//    // Atributos
+//    private var nome: String
+//    private var nota1: Double
+//    private var nota2: Double
+//
+//    // Construtor
+//    init(nome: String, nota1: Double, nota2: Double) {
+//        self.nome = nome
+//        self.nota1 = nota1
+//        self.nota2 = nota2
+//
+//        let media = media()
+//        let situacao = situacao(media: media)
+//
+//        print("\(nome) obteve média \(media), e sua situação é: \(situacao)")
+//    }
+//
+//    // Método de média
+//    private func media() -> Double {
+//        return (nota1 + nota2) / 2
+//    }
+//
+//    // Método de situação
+//    private func situacao(media: Double) -> String {
+//        if(media >= 7) {
+//            return "Aprovado(a)"
+//        } else {
+//            return "Reprovado(a)"
+//        }
+//    }
+//
+//}
+//
+//let obj = Aluno(nome: "Robson", nota1: 8, nota2: 10)
+
+// 2
+//class Produto {
+//    // Atributos
+//    private var nome: String
+//    private var valor: Double
+//
+//    // Construtor
+//    init(nome: String, valor: Double) {
+//        self.nome = nome
+//        self.valor = valor
+//
+//        let valorDesconto = desconto()
+//
+//        print("\(nome) irá custar R$ \(valor - valorDesconto).")
+//    }
+//
+//    // Método para verificar o desconto
+//    private func desconto() -> Double {
+//        if(valor >= 1000) {
+//            return valor * 0.10
+//        } else {
+//            return 0
+//        }
+//    }
+//}
+//
+//let obj = Produto(nome: "MacBook Air", valor: 9800)
+
+// 3
+//class Descontos {
+//    // Atributos
+//    private var salarioBruto: Double
+//    private var faltas: Int
+//
+//    // Construtor
+//    init(_ salarioBruto: Double, _ faltas: Int) {
+//        self.salarioBruto = salarioBruto
+//        self.faltas = faltas
+//
+//        let valeTransporte = valeTransporte()
+//        let impostoDeRenda = impostoDeRenda()
+//        let bonificacao = bonificacaoSemFaltas()
+//        let salarioLiquido = (salarioBruto + bonificacao) - (impostoDeRenda + valeTransporte)
+//
+//        print("Desconto Vale Transporte: R$ \(valeTransporte)")
+//        print("Desconto do Imposto de Renda: R$ \(impostoDeRenda)")
+//        print("Bonificação por não faltar: R$ \(bonificacao)")
+//        print("Salário líquido: R$ \(salarioLiquido)")
+//    }
+//
+//    // Funções
+//    private func valeTransporte() -> Double {
+//        return salarioBruto * 0.06
+//    }
+//
+//    private func impostoDeRenda() -> Double {
+//        if(salarioBruto <= 1560) {
+//            return 0
+//        } else if(salarioBruto <= 3120) {
+//            return salarioBruto * 0.04
+//        } else if(salarioBruto <= 6240) {
+//            return salarioBruto * 0.07
+//        } else if(salarioBruto <= 12480) {
+//            return salarioBruto * 0.12
+//        } else {
+//            return salarioBruto * 0.15
+//        }
+//    }
+//
+//    private func bonificacaoSemFaltas() -> Double {
+//        if(faltas == 0) {
+//            return 400.00
+//        } else {
+//            return 0.0
+//        }
+//    }
+//
+//}
+//
+//let obj = Descontos(5000, 0)
+
+// 4
+//class Media {
+//
+//    static func media(_ nota1: Double, _ nota2: Double) -> Void {
+//        let media = (nota1 + nota2) / 2
+//        let situacao = media >= 7 ? "Aprovado(a)" : "Reprovado(a)"
+//
+//        print("Média: \(media)")
+//        print("Situação: \(situacao)")
+//    }
+//
+//    static func media(_ nota1: Double, _ nota2: Double, _ nota3: Double) -> Void {
+//        let media = (nota1 + nota2 + nota3) / 3
+//        let situacao = media >= 7 ? "Aprovado(a)" : "Reprovado(a)"
+//
+//        print("Média: \(media)")
+//        print("Situação: \(situacao)")
+//    }
+//
+//    static func media(_ nota1: Double, _ nota2: Double, _ nota3: Double, _ nota4: Double) -> Void {
+//        let media = (nota1 + nota2 + nota3 + nota4) / 4
+//        let situacao = media >= 7 ? "Aprovado(a)" : "Reprovado(a)"
+//
+//        print("Média: \(media)")
+//        print("Situação: \(situacao)")
+//    }
+//
+//}
+//
+//Media.media(8, 10)
+//Media.media(8, 6, 3)
+//Media.media(8, 10, 10, 9)
+
+// 5
+//class Cliente {
+//    // Atributos
+//    private var nome: String = ""
+//    private var idade: Int = 0
+//    private var cidade: String = ""
+//
+//    // Construtores
+//    init() {
+//        print("Bom dia!")
+//    }
+//
+//    init(nome: String) {
+//        self.nome = nome
+//        print("Bom dia \(nome)!")
+//    }
+//
+//    init(nome: String, idade: Int) {
+//        self.nome = nome
+//        self.idade = idade
+//        print("Bom dia \(nome), você tem \(idade) anos.")
+//    }
+//
+//    init(nome: String, idade: Int, cidade: String) {
+//        self.nome = nome
+//        self.idade = idade
+//        self.cidade = cidade
+//        print("Bom dia \(nome), você tem \(idade) anos e mora em \(cidade).")
+//    }
+//
+//}
+//
+//let obj1 = Cliente()
+//let obj2 = Cliente(nome: "Ricardo")
+//let obj3 = Cliente(nome: "Júlia", idade: 32)
+//let obj4 = Cliente(nome: "Rebeca", idade: 28, cidade: "São Paulo")
+
+// 6
+//struct Animal {
+//    var tipo: String = ""
+//    var peso: Double = 0.0
+//}
+//
+//let animal1 = Animal(tipo: "Leão", peso: 150.00)
+//
+//var animal2 = animal1
+//animal2.tipo = "Urso"
+//animal2.peso = 400.00
+//
+//print(animal1)
+//print(animal2)
+
+
+// POLIMORFISMO - OVERRIDE (SOBRESCRITA)
+//class Descontos {
+//
+//    func valeTransporte(salario: Double) {
+//        print("Desconto padrão do Vale Transporte: R$ \(salario * 0.06)")
+//    }
+//
+//    func impostoRenda(salario: Double) {
+//        print("Desconto padrão do Imposto de Renda: R$ \(salario * 0.10)")
+//    }
+//
+//}
+//
+//class DescontosDesenvolvedor: Descontos {
+//
+//    override func impostoRenda(salario: Double) {
+//        print("Desconto do Imposto de Renda para desenvolvedores: R$ \(salario * 0.12)")
+//    }
+//
+//}
+//
+//let obj1 = Descontos()
+//obj1.valeTransporte(salario: 5000.00)
+//obj1.impostoRenda(salario: 5000.00)
+
+//let obj2 = DescontosDesenvolvedor()
+//obj2.valeTransporte(salario: 5000.00)
+//obj2.impostoRenda(salario: 5000.00)
+
+
+
+
+
+
+
+
+
+
+
+// POLIMORFISMO - OVERLOAD (SOBRECARGA)
+//class Soma {
+//
+//    func somar(numero1: Int, numero2: Int) {
+//        print(numero1 + numero2)
+//    }
+//
+//    func somar(numero1: Int, numero2: Int, numero3: Int) {
+//        print(numero1 + numero2 + numero3)
+//    }
+//
+//}
+
+//let obj = Soma()
+//obj.somar(numero1: 5, numero2: 4)
+//obj.somar(numero1: 3, numero2: 9, numero3: 5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// HERANÇA
+//class Pessoa {
+//    var nome: String = ""
+//    var idade: Int = 0
+//
+//    init(nome: String, idade: Int) {
+//        self.nome = nome
+//        self.idade = idade
+//    }
+//
+//    func exibirDadosPessoa() {
+//        print("Nome: \(nome)")
+//        print("Idade: \(idade)")
+//    }
+//}
+
+//class Colaborador: Pessoa {
+//    var salario: Double = 0.0
+//    var cargo: String = ""
+//
+//    init(nome: String, idade: Int, salario: Double, cargo: String) {
+//        self.salario = salario
+//        self.cargo = cargo
+//        super.init(nome: nome, idade: idade)
+//
+//        exibirDadosPessoa()
+//        exibirDadosColaborador()
+//    }
+
+//    func exibirDadosColaborador() {
+//        print("Salário: \(salario)")
+//        print("Cargo: \(cargo)")
+//    }
+//}
+
+//let obj = Colaborador(nome: "Rebeca", idade: 33, salario: 4500.00, cargo: "Gerente de Projetos")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// STRUCT
+
+// Exemplo 1
+//struct Pessoa {
+//    var nome: String = ""
+//}
+//
+//var p1 = Pessoa()
+//p1.nome = "Alice"
+//
+//var p2 = p1
+//p2.nome = "Érica"
+//
+//print(p1.nome)
+//print(p2.nome)
+
+// Exemplo 2
+//struct Pessoa {
+//    var nome: String
+//}
+
+//let p = Pessoa(nome: "Ralf")
+
+/*
+CARACTERÍSTICA                  |    CLASS     | STRUCT
+Instanciar objeto                      ✅          ✅
+Atributos/Métodos                      ✅          ✅
+Construtor                             ✅          ✅
+Cópia sem vínculo com obj original     ❌          ✅
+Modificadores de acesso                ✅          ✅
+Herança                                ✅          ❌
+Memberwise (construtor automático)     ❌          ✅
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ATRIBUTOS E MÉTODOS ESTÁTICOS
+//class Calculos {
+//
+//    static var pi: Float = 3.14
+//
+//    static func soma(_ numero1: Int, _ numero2: Int) -> Int {
+//        return numero1 + numero2
+//    }
+//
+//}
+
+//print(Calculos.pi)
+//print(Calculos.soma(8, 10))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CONSTRUTOR
+//class Pessoa {
+    // Atributos
+    //private var nome: String
+    //private var idade: Int
+    
+    // 1º Construtor
+    //init() {
+    //    print("Construtor inicializado...")
+    //}
+    
+    // 2º Construtor
+    //init(nome: String) {
+    //    print("Bom dia \(nome)")
+    //}
+    
+    // 3º Construtor
+    //init(nome: String, idade: Int) {
+    //    self.nome = nome
+    //    self.idade = idade
+    //
+    //    mensagem()
+    //
+    //}
+    //
+    //private func mensagem() {
+    //    print("Olá \(nome), você tem \(idade) anos.")
+    //}
+
+//}
+
+//let p1 = Pessoa()
+//let p2 = Pessoa(nome: "Ralf")
+//let p3 = Pessoa(nome: "Cleber", idade: 33)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    MODIFICADORES DE ACESSO
+    1. PUBLIC (Atributos e métodos disponíveis para acesso de qualquer local)
+ 
+    2. INTERNAL (Acesso a atributos e métodos no mesmo módulo/pacote)
+ 
+    3. FILEPRIVATE (Atributos e métodos disponíveis apenas no mesmo arquivo)
+ 
+    4. PRIVATE (Atributos e métodos disponíveis apenas na mesma classe)
+ 
+    AO CRIAR UM ATRIBUTO OU MÉTODO, POR PADRÃO O SWIFT UTILIZA O MODIFICADOR INTERNAL.
+*/
+
+//class Pessoa {
+//    private var _nome: String = ""
+//    private var _idade: Int = 0
+//
+//    // 1ª maneira
+//    var nome: String {
+//        get { return _nome }
+//        set (valor) { _nome = valor }
+//    }
+//
+//    // 2ª maneira
+//    var idade: Int {
+//        get { return _idade }
+//        set { _idade = newValue }
+//    }
+//
+//    // 3ª maneira (READONLY FORA DA CLASSE - GET)
+//    private(set) var cidade: String = "São Paulo"
+//
+//}
+
+//let p = Pessoa()
+//p.nome = "Ralf"
+//p.idade = 36
+//print(p.cidade)
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Classe, Atributo, Método e Objeto
+//class Pessoa {
+//
+//    var nome: String = ""
+//    var idade: Int = 0
+//
+//    func apresentacao() -> Void {
+//        print("Bom dia \(nome), você tem \(idade) anos.")
+//    }
+//
+//}
+//
+//let p = Pessoa()
+//p.nome = "Juliana"
+//p.idade = 32
+//p.apresentacao()

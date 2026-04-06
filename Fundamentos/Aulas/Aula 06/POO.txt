@@ -1,0 +1,202 @@
+// STRUCT
+
+// Exemplo 1
+//struct Pessoa {
+//    var nome: String = ""
+//}
+//
+//var p1 = Pessoa()
+//p1.nome = "Alice"
+//
+//var p2 = p1
+//p2.nome = "Érica"
+//
+//print(p1.nome)
+//print(p2.nome)
+
+// Exemplo 2
+//struct Pessoa {
+//    var nome: String
+//}
+
+//let p = Pessoa(nome: "Ralf")
+
+/*
+CARACTERÍSTICA                  |    CLASS     | STRUCT
+Instanciar objeto                      ✅          ✅
+Atributos/Métodos                      ✅          ✅
+Construtor                             ✅          ✅
+Cópia sem vínculo com obj original     ❌          ✅
+Modificadores de acesso                ✅          ✅
+Herança                                ✅          ❌
+Memberwise (construtor automático)     ❌          ✅
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ATRIBUTOS E MÉTODOS ESTÁTICOS
+//class Calculos {
+//
+//    static var pi: Float = 3.14
+//
+//    static func soma(_ numero1: Int, _ numero2: Int) -> Int {
+//        return numero1 + numero2
+//    }
+//
+//}
+
+//print(Calculos.pi)
+//print(Calculos.soma(8, 10))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CONSTRUTOR
+//class Pessoa {
+    // Atributos
+    //private var nome: String
+    //private var idade: Int
+    
+    // 1º Construtor
+    //init() {
+    //    print("Construtor inicializado...")
+    //}
+    
+    // 2º Construtor
+    //init(nome: String) {
+    //    print("Bom dia \(nome)")
+    //}
+    
+    // 3º Construtor
+    //init(nome: String, idade: Int) {
+    //    self.nome = nome
+    //    self.idade = idade
+    //
+    //    mensagem()
+    //
+    //}
+    //
+    //private func mensagem() {
+    //    print("Olá \(nome), você tem \(idade) anos.")
+    //}
+
+//}
+
+//let p1 = Pessoa()
+//let p2 = Pessoa(nome: "Ralf")
+//let p3 = Pessoa(nome: "Cleber", idade: 33)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    MODIFICADORES DE ACESSO
+    1. PUBLIC (Atributos e métodos disponíveis para acesso de qualquer local)
+ 
+    2. INTERNAL (Acesso a atributos e métodos no mesmo módulo/pacote)
+ 
+    3. FILEPRIVATE (Atributos e métodos disponíveis apenas no mesmo arquivo)
+ 
+    4. PRIVATE (Atributos e métodos disponíveis apenas na mesma classe)
+ 
+    AO CRIAR UM ATRIBUTO OU MÉTODO, POR PADRÃO O SWIFT UTILIZA O MODIFICADOR INTERNAL.
+*/
+
+//class Pessoa {
+//    private var _nome: String = ""
+//    private var _idade: Int = 0
+//
+//    // 1ª maneira
+//    var nome: String {
+//        get { return _nome }
+//        set (valor) { _nome = valor }
+//    }
+//
+//    // 2ª maneira
+//    var idade: Int {
+//        get { return _idade }
+//        set { _idade = newValue }
+//    }
+//
+//    // 3ª maneira (READONLY FORA DA CLASSE - GET)
+//    private(set) var cidade: String = "São Paulo"
+//
+//}
+
+//let p = Pessoa()
+//p.nome = "Ralf"
+//p.idade = 36
+//print(p.cidade)
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Classe, Atributo, Método e Objeto
+//class Pessoa {
+//
+//    var nome: String = ""
+//    var idade: Int = 0
+//
+//    func apresentacao() -> Void {
+//        print("Bom dia \(nome), você tem \(idade) anos.")
+//    }
+//
+//}
+//
+//let p = Pessoa()
+//p.nome = "Juliana"
+//p.idade = 32
+//p.apresentacao()

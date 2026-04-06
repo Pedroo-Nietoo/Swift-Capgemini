@@ -1,0 +1,140 @@
+// EXERCÍCIOS
+// 1º
+//enum ErroSaque: Error {
+//    case saldoInsuficiente
+//}
+//
+//func sacar(valorSaque: Double, saldo: Double) throws -> Double {
+//    if valorSaque > saldo {
+//        throw ErroSaque.saldoInsuficiente
+//    }
+//
+//    return saldo - valorSaque
+//}
+//
+//do {
+//    let saldoFinal = try sacar(valorSaque: 200, saldo: 100)
+//    print("Saldo final: \(saldoFinal)")
+//} catch {
+//    print("Erro: \(error)")
+//}
+
+// 2º
+//enum ErroIdade: Error {
+//    case idadeInvalida
+//}
+//
+//func validarIdade(_ idade: Int) throws {
+//    if idade < 0 || idade > 130 {
+//        throw ErroIdade.idadeInvalida
+//    }
+//
+//    print("Idade válida: \(idade)")
+//}
+//
+//do {
+//    try validarIdade(150)
+//} catch {
+//    print("Erro: \(error)")
+//}
+
+// 3º
+//func inverterArray<T>(_ lista: [T]) -> [T] {
+//    return Array(lista.reversed())
+//}
+//
+//let numeros = [1, 2, 3]
+//let invertido = inverterArray(numeros)
+//
+//print(invertido)
+
+// 4º
+//struct Pessoa {
+//    let nome: String
+//}
+//
+//struct Carro {
+//    let modelo: String
+//}
+//
+//func obterTipo<T>(_ objeto: T) -> String {
+//    // Forma semelhante ao exemplo ensinado
+//    if objeto is Pessoa {
+//        return "É do tipo Pessoa"
+//    } else if objeto is Carro {
+//        return "É do tipo Carro"
+//    } else {
+//        return "Tipo desconhecido"
+//    }
+//
+//    // Forma mais simplificada
+//    //return String(describing: type(of: objeto))
+//}
+//
+//let pessoa = Pessoa(nome: "João")
+//let carro = Carro(modelo: "Fusca")
+//
+//print(obterTipo(pessoa))
+//print(obterTipo(carro))
+
+//5º
+//extension Int {
+//    func dobrar() -> Int {
+//        return self * 2
+//    }
+//}
+//
+//let numero = 10
+//print(numero.dobrar())
+
+//6º
+//extension String {
+//    func contarVogaisEConsoantes() -> (vogais: Int, consoantes: Int) {
+//        let vogaisSet = "aeiouAEIOU"
+//
+//        var vogais = 0
+//        var consoantes = 0
+//
+//        for letra in self {
+//            if letra.isLetter {
+//                if vogaisSet.contains(letra) {
+//                    vogais += 1
+//                } else {
+//                    consoantes += 1
+//                }
+//            }
+//        }
+//
+//        return (vogais, consoantes)
+//    }
+//}
+//
+//let texto = "Swift é incrível"
+//let resultado = texto.contarVogaisEConsoantes()
+//
+//print("Vogais: \(resultado.vogais)")
+//print("Consoantes: \(resultado.consoantes)")
+
+//7º
+//import Foundation
+//
+//struct Funcionario {
+//    let codigo: UUID = UUID()
+//    let nome: String
+//    let cargo: String
+//}
+//
+//let funcionario1 = Funcionario(nome: "Ana", cargo: "Gerente")
+//let funcionario2 = Funcionario(nome: "Carlos", cargo: "Desenvolvedor")
+//let funcionario3 = Funcionario(nome: "Marina", cargo: "Designer")
+//
+//func mostrarFuncionario(_ f: Funcionario) {
+//    print("Código: \(f.codigo)")
+//    print("Nome: \(f.nome)")
+//    print("Cargo: \(f.cargo)")
+//    print("---------------")
+//}
+//
+//mostrarFuncionario(funcionario1)
+//mostrarFuncionario(funcionario2)
+//mostrarFuncionario(funcionario3)

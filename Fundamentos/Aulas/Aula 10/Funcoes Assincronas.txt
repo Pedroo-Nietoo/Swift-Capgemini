@@ -1,0 +1,137 @@
+// 3º Exemplo
+import Foundation
+
+func tarefa1() async {
+    try? await Task.sleep(for:.seconds(2))
+    print("Tarefa 1")
+}
+
+func tarefa2() async {
+    //Thread.sleep(forTimeInterval: 5)
+    try? await Task.sleep(for:.seconds(5))
+    print("Tarefa 2")
+}
+
+func tarefa3() async {
+    //Thread.sleep(forTimeInterval: 3)
+    try? await Task.sleep(for:.seconds(3))
+    print("Tarefa 3")
+}
+
+// Tarefa principal
+Task {
+    // Agrupar tarefas
+    await withTaskGroup(of: Void.self) { grupo in
+        
+        // Adicionar a primeira tarefa
+        grupo.addTask { await tarefa1() }
+            
+        // Adicionar a segunda tarefa
+        grupo.addTask { await tarefa2() }
+        
+        // Adicionar a terceira tarefa
+        grupo.addTask { await tarefa3() }
+        
+    }
+    
+    // Retorno informado o término das tarefas
+    print("Tarefas finalizadas")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//2º Exemplo
+//import Foundation
+//
+//func somar(_ numero1: Int, _ numero2: Int) async -> Int {
+//    try? await Task.sleep(for: .seconds(3))
+//    print("Soma finalizada")
+//    return numero1 + numero2
+//}
+//
+//func dobrarValor(_ numero: Int) async -> Int {
+//    try? await Task.sleep(for: .seconds(5))
+//    print("Dobrar valor finalizado")
+//    return numero * 2
+//}
+//
+//Task {
+//    // Obter a soma dos valores
+//    let somaValores = await somar(7, 3)
+//
+//    // Dobrar o valor somado
+//    let dobrarValor = await dobrarValor(somaValores)
+//
+//    // Exibir o valor somado dobrado
+//    print(dobrarValor)
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//1º Exemplo
+//import Foundation
+//
+//func tarefa1() async {
+//    //Thread.sleep(forTimeInterval: 2) <- Funciona sem o async
+//    try? await Task.sleep(for:.seconds(2))
+//    print("Tarefa 1")
+//}
+//
+//func tarefa2() async {
+//    //Thread.sleep(forTimeInterval: 5)
+//    try? await Task.sleep(for:.seconds(5))
+//    print("Tarefa 2")
+//}
+//
+//func tarefa3() async {
+//    //Thread.sleep(forTimeInterval: 3)
+//    try? await Task.sleep(for:.seconds(3))
+//    print("Tarefa 3")
+//}
+//
+//print("Hello World!")
+//
+//Task {
+//    // Executar cada tarefa e armazenar em uma referência
+//    async let t1: () = tarefa1()
+//    async let t2: () = tarefa2()
+//    async let t3: () = tarefa3()
+//
+//    // Exibir os prints
+//    await t1
+//    await t2
+//    await t3
+//}
+//
+//print("Olá Swift!")

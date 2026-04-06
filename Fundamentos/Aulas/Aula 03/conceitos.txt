@@ -1,0 +1,162 @@
+// Exibir mensagem
+//print("Hello World!")
+
+// Variáveis
+//var nome = "Ralf"
+//print("Bom dia " + nome) // Maneira incorreta
+//print("Bom dia \(nome)") // Maneira correta
+
+// Optional (Quando uma variável pode ser nula)
+//var nome : String? = nil
+//print(nome ?? "Não há nome")
+
+//var gostaDeCafé : Bool = true
+//var 🧑 = true
+//var cachorro = "🐶"
+
+// Constante
+//let nome = "Ralf"
+//let nome : String = "Ralf"
+//nome = "Jean"
+
+/*TIPOS DE DADOS
+ String -> Textual
+ Char   -> Letra/Caractere
+ 
+ Int    -> Números inteiros
+ Float  -> Suporte entre 6 e 7 casas decimais
+ Double -> Double entre 15 e 16 casas decimais
+ UInt   -> Não aceita números negativos
+ 
+ Bool   -> Boolean/Lógica (true / false)
+ 
+ Any       -> Flexível
+ AnyObject -> Classes
+ 
+ Void   -> Quando não há retorno em funções
+*/
+
+/* OPERADORES ARITMÉTICOS
+    +  -> SOMA
+    -  -> SUBTRAÇÃO
+    *  -> MULTIPLICAÇÃO
+    /  -> DIVISÃO
+    %  -> MÓDULO (RESTO DA DIVISÃO)
+ 
+   OPERADORES RELACIONAIS
+   >   -> MAIOR
+   >=  -> MAIOR OU IGUAL
+   <   -> MENOR
+   <=  -> MENOR OU IGUAL
+   ==  -> IGUAL
+   !=  -> DIFERENTE
+ 
+   OPERADORES LÓGICOS
+   &&  -> E
+   ||  -> OU
+   !   -> NEGAÇÃO
+ */
+
+// ESTRUTURAS DE CONDIÇÃO
+//var media : Float = 8.5
+
+//if media >= 7 {
+//    print("Aprovado(a)")
+//} else if media >= 5 {
+//    print("Recuperação")
+//} else {
+//    print("Reprovado(a)")
+//}
+
+// OPERADOR TERNÁRIO
+//var idade : Int = 22
+
+//var situacaoIdade = (idade >= 18) ? "Maior de idade" : "Menor de idade"
+
+//print(situacaoIdade)
+
+// ESTRUTURA DE ESCOLHA
+var produto : String = "iPhone 17"
+
+switch produto {
+    case "Samsung Galaxy S26":
+        print("O produto Samsung Galaxy S26 - R$8.500,00")
+    
+    case "MacBook Pro":
+        print("O produto MacBook Pro - R$16.700,00")
+        
+    case "iPhone 17":
+        print("O produto iPhone 17 - R$11.200,00")
+    
+    default:
+        print("Produto desconhecido")
+}
+
+// LAÇOS DE REPETIÇÃO
+//var indice : Int = 0
+
+//while indice <= 10 {
+//    print(indice)
+//
+//    indice += 1
+//}
+
+//repeat {
+//    print(indice)
+//    indice += 1
+//} while indice <= 10
+
+//for indice in 0...10 {
+//    print(indice)
+//}
+
+// ARRAY (VETOR)
+//var nomes = ["Ana", "Bianca", "Carlos", "Daniel"]
+//var nomes : [String] = ["Ana", "Bianca", "Carlos", "Daniel"]
+
+//nomes.append("Fernanda") // Adiciona na última posição
+//nomes.insert("Gustavo", at: 1) // Adicionar um valor em determinada posição
+
+//nomes.remove(at: 0) // Remover valor através de uma posição
+
+//nomes[0] = "Eduardo" // Alterar valor do vetor
+
+//print(nomes[0]) // Exibir o primeiro nome
+
+//for indice in 0...4 {
+//    print(nomes[indice])
+//}
+
+//for (indice, nome) in nomes.enumerated(){
+//    print("\(indice) - \(nome)")
+//}
+
+//nomes.forEach { print($0) } // $0 referência ao valor na posição em execução
+
+// DICTIONARIES
+var dados : [Int : String] = [1 : "MacBook Pro"]
+
+// SETS
+var nomes : Set<String> = ["Ana", "Bianca", "Carlos", "Daniel"]
+
+// BREAK E CONTINUE
+for indice in 1...5 {
+    if indice == 3 {
+        break // Finaliza o laço
+    }
+}
+
+for indice in 1...5 {
+    if indice < 3 {
+        continue // Continua a executar
+    } else {
+        break    // Finaliza o laço
+    }
+}
+
+// FUNÇÕES
+func apresentacao(nome : String) -> Void{
+    print("Bom dia \(nome)")
+}
+
+apresentacao(nome : "Ralf")

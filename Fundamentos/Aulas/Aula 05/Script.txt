@@ -1,0 +1,311 @@
+// Exibir mensagem
+//print("Hello World!")
+
+// Variáveis
+//var nome = "Ralf"
+//print("Bom dia " + nome) // Maneira incorreta
+//print("Bom dia \(nome)") // Maneira correta
+
+// Optional (Quando uma variável pode ser nula)
+//var nome : String? = nil
+//print(nome ?? "Não há nome")
+
+//var gostaDeCafé : Bool = true
+//var 🧑 = true
+//var cachorro = "🐶"
+
+// Constante
+//let nome = "Ralf"
+//let nome : String = "Ralf"
+//nome = "Jean"
+
+/*TIPOS DE DADOS
+ String -> Textual
+ Char   -> Letra/Caractere
+ 
+ Int    -> Números inteiros
+ Float  -> Suporte entre 6 e 7 casas decimais
+ Double -> Double entre 15 e 16 casas decimais
+ UInt   -> Não aceita números negativos
+ 
+ Bool   -> Boolean/Lógica (true / false)
+ 
+ Any       -> Flexível
+ AnyObject -> Classes
+ 
+ Void   -> Quando não há retorno em funções
+*/
+
+/* OPERADORES ARITMÉTICOS
+    +  -> SOMA
+    -  -> SUBTRAÇÃO
+    *  -> MULTIPLICAÇÃO
+    /  -> DIVISÃO
+    %  -> MÓDULO (RESTO DA DIVISÃO)
+ 
+   OPERADORES RELACIONAIS
+   >   -> MAIOR
+   >=  -> MAIOR OU IGUAL
+   <   -> MENOR
+   <=  -> MENOR OU IGUAL
+   ==  -> IGUAL
+   !=  -> DIFERENTE
+ 
+   OPERADORES LÓGICOS
+   &&  -> E
+   ||  -> OU
+   !   -> NEGAÇÃO
+ */
+
+// ESTRUTURAS DE CONDIÇÃO
+//var media : Float = 8.5
+
+//if media >= 7 {
+//    print("Aprovado(a)")
+//} else if media >= 5 {
+//    print("Recuperação")
+//} else {
+//    print("Reprovado(a)")
+//}
+
+// OPERADOR TERNÁRIO
+//var idade : Int = 22
+
+//var situacaoIdade = (idade >= 18) ? "Maior de idade" : "Menor de idade"
+
+//print(situacaoIdade)
+
+// ESTRUTURA DE ESCOLHA
+//var produto : String = "iPhone 17"
+
+//switch produto {
+//    case "Samsung Galaxy S26":
+//        print("O produto Samsung Galaxy S26 - R$8.500,00")
+//
+//    case "MacBook Pro":
+//        print("O produto MacBook Pro - R$16.700,00")
+//
+//    case "iPhone 17":
+//        print("O produto iPhone 17 - R$11.200,00")
+//
+//    default:
+//        print("Produto desconhecido")
+//}
+
+// LAÇOS DE REPETIÇÃO
+//var indice : Int = 0
+
+//while indice <= 10 {
+//    print(indice)
+//
+//    indice += 1
+//}
+
+//repeat {
+//    print(indice)
+//    indice += 1
+//} while indice <= 10
+
+//for indice in 0...10 {
+//    print(indice)
+//}
+
+// ARRAY (VETOR)
+//var nomes = ["Ana", "Bianca", "Carlos", "Daniel"]
+//var nomes : [String] = ["Ana", "Bianca", "Carlos", "Daniel"]
+
+//nomes.append("Fernanda") // Adiciona na última posição
+//nomes.insert("Gustavo", at: 1) // Adicionar um valor em determinada posição
+
+//nomes.remove(at: 0) // Remover valor através de uma posição
+
+//nomes[0] = "Eduardo" // Alterar valor do vetor
+
+//print(nomes[0]) // Exibir o primeiro nome
+
+//for indice in 0...4 {
+//    print(nomes[indice])
+//}
+
+//for (indice, nome) in nomes.enumerated(){
+//    print("\(indice) - \(nome)")
+//}
+
+//nomes.forEach { print($0) } // $0 referência ao valor na posição em execução
+
+// DICTIONARIES
+//var dados : [Int : String] = [1 : "MacBook Pro"]
+
+// SETS
+//var nomes : Set<String> = ["Ana", "Bianca", "Carlos", "Daniel"]
+
+// BREAK E CONTINUE
+//for indice in 1...5 {
+//    if indice == 3 {
+//        break // Finaliza o laço
+//    }
+//}
+
+//for indice in 1...5 {
+//    if indice < 3 {
+//        continue // Continua a executar
+//    } else {
+//        break    // Finaliza o laço
+//    }
+//}
+
+// FUNÇÕES
+//func apresentacao(nome: String) -> Void{
+//    print("Bom dia \(nome)")
+//}
+
+//apresentacao(nome: "Ralf")
+
+// ENUMS
+//enum Linguagens {
+//    case Swift
+//    case Java
+//    case Python
+//}
+
+//var minhaLinguagem1 : String = "Kotlin"
+//var minhaLinguagem2 = Linguagens.Swift
+
+//print(type(of: minhaLinguagem1))
+//print(type(of: minhaLinguagem2))
+
+//switch minhaLinguagem2 {
+//    case Linguagens.Swift:
+//    print("Linguagem utilizada pela Apple")
+//
+//    case Linguagens.Java:
+//    print("Linguagem multiplataforma da Oracle")
+//
+//    case Linguagens.Python:
+//    print("Linguagem flexível, muito utilizada para análise de dados")
+//}
+
+// VALORES ASSOCIADOS E PATTERN MATCHING
+//enum Status {
+//    case planejamento(descricao: String)
+//    case desenvolvimento(tecologia: String)
+//    case entrega(versao: Float)
+//}
+
+//print(Status.planejamento(descricao: "Elaboração do front-end utilizando o Figma"))
+
+//CLOSURES (funções anônimas)
+//func soma1 (numero1: Int, numero2: Int) -> Int {
+//    return numero1 + numero2
+//}
+
+//let soma2: (Int, Int) -> Int = {
+//    (n1: Int, n2: Int) -> Int
+//    in n1 + n2
+//}
+
+//let soma3 = { (n1: Int, n2: Int) in n1 + n2 }
+
+//let soma4: (Int, Int) -> Int = { $0 + $1 }
+//print(soma4(10, 7))
+
+// GUARD LET
+//func mensagem(_ nome: String?){
+    
+    // Optional
+    //let nomeRetorno = nome ?? "Anônimo"
+    //print("Olá \(nomeRetorno)")
+    
+//    guard let nomeRetorno = nome else {
+//        print("O nome não pode ser nulo!")
+//        return
+//    }
+    
+//    print("Olá \(nomeRetorno)")
+    
+//}
+
+//mensagem("Ralf")
+
+// TUPLA
+//var pessoa = ("Alice", 28)
+//print(pessoa.0)
+
+//var pessoa = (nome: "Alice", idade: 28)
+//print(pessoa.nome)
+
+//let situacaoAluno: (Float, Float) -> (Float, String) = {
+//    let media = ($0 + $1) / 2
+    
+//    return media >= 7 ?
+//    (media, "Aprovado(a)") : (media, "Reprovado(a)")
+//}
+
+//print(situacaoAluno(8, 10))
+
+// CONVERTER DADOS
+//var numero1: String = "42"
+
+//var numero2: Int = Int(numero1) ?? 0
+//print(3 + numero2)
+
+//print((Int(numero1) ?? 0) + 3)
+
+//if var numero2: Int = Int(numero1){
+//    print("Conversão realizada com sucesso!")
+//    print(numero2)
+//} else {
+//    print("Falha ao converter!")
+//}
+
+// FUNÇÕES PARA MANIPULAR VETORES
+var idades: [Int] = [12, 32, 8, 41, 33, 16, 27]
+
+print("A quantidade de registros é \(idades.count)")
+
+print("O array está vazio? Resposta: \(idades.isEmpty)")
+
+print(idades.first ?? "Vetor vazio")
+
+print(idades.first(where: {$0 > 20} ) ?? "Não existe idade maior que 20")
+
+print(idades.last ?? "Vetor vazio")
+
+print(idades.filter { $0 >= 18 })
+
+print(idades.sorted())
+
+print(idades.sorted(by: >))
+
+print(idades.contains(32))
+
+for idade in idades where idade >= 18 {
+    print(idade)
+}
+
+let situacaoIdade = idades.map {
+    $0 >= 18 ? "\($0) é maior de idade" : "\($0) é menor de idade"
+}
+
+situacaoIdade.forEach { print($0) }
+
+// FUNÇÕES PARA MANIPULAR TEXTOS
+let texto: String = "Aprendendo Swift"
+
+print(Array(texto)[0]) // Extrair caractere em uma determinada posição
+
+print(texto.count) // Obter a quantidade de caracteres
+
+print(texto.isEmpty) // Retorna um tipo lógico, dependendo se o vetor possui alguma informação
+
+print(texto.uppercased()) // Transforma os caracteres em "caixa alta" (maiúsculas)
+
+print(texto.lowercased()) // Transforma os caracteres em "caixa baixa" (minúsculas)
+
+let nomes: String = "Alice, Carlos, Roberto, Pâmela, Alice" // Nomes separados por vírgula
+
+let vetorNomes = nomes.split(separator: ", ") // Criar um novo vetor, será gerada um novo valor, quando referenciar a vírgula
+
+print(vetorNomes) // Exibir vetor de nomes
+
+print(nomes.replacing("Alice", with: "Aline")) // Substituir informações

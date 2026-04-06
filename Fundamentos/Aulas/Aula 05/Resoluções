@@ -1,0 +1,108 @@
+//1
+let nome = "Carlos"
+let idade = 25
+let cidade = "Florianópolis"
+
+let frase = "Meu nome é \(nome), tenho \(idade) anos e moro em \(cidade)."
+print(frase)
+
+//2
+let num1 = 5
+let num2 = 5
+
+if num1 == num2 {
+    print("Soma: \(num1 + num2)")
+} else {
+    print("Multiplicação: \(num1 * num2)")
+}
+
+//3
+let ano = 2024
+
+if (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0) {
+    print("\(ano) é bissexto")
+} else {
+    print("\(ano) não é bissexto")
+}
+
+//4
+let a = 8
+let b = 3
+let c = 5
+
+var menor = a
+
+if b < menor {
+    menor = b
+}
+if c < menor {
+    menor = c
+}
+
+print("Menor número: \(menor)")
+
+//5
+let numero = 10
+
+print("Antecessor: \(numero - 1)")
+print("Sucessor: \(numero + 1)")
+
+//6
+let valor = 7
+
+for i in 1...10 {
+    print("\(valor) x \(i) = \(valor * i)")
+}
+
+//7
+let inicio = 1
+let fim = 10
+
+var total = 0
+var pares = 0
+var impares = 0
+var soma = 0
+
+for i in inicio...fim {
+    total += 1
+    soma += i
+    
+    if i % 2 == 0 {
+        pares += 1
+    } else {
+        impares += 1
+    }
+}
+
+let media = Double(soma) / Double(total)
+
+print("Quantidade total: \(total)")
+print("Pares: \(pares)")
+print("Ímpares: \(impares)")
+print("Média: \(media)")
+
+//8
+var numeros = [9, 2, 7, 1, 5]
+
+numeros.sort()
+
+print("Ordem crescente: \(numeros)")
+
+//9
+let nomes = ["Ana", "Carlos", "Pedro", "Marina", "João"]
+let vogais = "aeiouAEIOU"
+
+for nome in nomes {
+    var qtdVogais = 0
+    var qtdConsoantes = 0
+    
+    for letra in nome {
+        if vogais.contains(letra) {
+            qtdVogais += 1
+        } else {
+            qtdConsoantes += 1
+        }
+    }
+    
+    print("\(nome): Vogais = \(qtdVogais), Consoantes = \(qtdConsoantes)")
+}
