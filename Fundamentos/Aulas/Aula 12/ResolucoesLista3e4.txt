@@ -1,0 +1,183 @@
+/*LISTA 03 - FUNÇÕES ASSÍNCRONAS*/
+
+// 1ª Atividade
+//import Foundation
+//
+//func desconto10(valor: Double) async -> Double {
+//    try? await Task.sleep(for: .seconds(3))
+//    return valor * 0.9
+//}
+//
+//func desconto20(valor: Double) async -> Double {
+//    try? await Task.sleep(for: .seconds(5))
+//    return valor * 0.8
+//}
+//
+//func adicionar10(valor: Double) async -> Double {
+//    try? await Task.sleep(for: .seconds(2))
+//    return valor + 10
+//}
+//
+//Task {
+//    let inicial = 100.0
+//
+//    let valor1 = await desconto10(valor: inicial)
+//    print("Após desconto 10%: \(valor1)")
+//
+//    let valor2 = await desconto20(valor: valor1)
+//    print("Após desconto 20%: \(valor2)")
+//
+//    let valorFinal = await adicionar10(valor: valor2)
+//    print("Após adicionar 10: \(valorFinal)")
+//}
+
+
+
+
+
+//2ª Atividade
+//import Foundation
+//
+//let nomes = ["Alice", "Bruno", "Carla", "Daniel", "Eduardo", "Fernanda", "Gustavo", "Helena", "Igor", "Julia"]
+//
+//func verificarNome(_ nome: String) async -> Bool {
+//    try? await Task.sleep(for: .seconds(4))
+//    return nomes.contains(nome)
+//}
+//
+//func mensagemNomeExiste(_ existe: Bool) async -> String {
+//    return existe ? "O nome informado existe no vetor" : "O nome não existe no vetor"
+//}
+//
+//Task {
+//    let nomeParaBuscar = "Daniel"
+//    let existe = await verificarNome(nomeParaBuscar)
+//    let mensagem = await mensagemNomeExiste(existe)
+//    print(mensagem)
+//}
+
+
+
+
+
+
+
+//3ª Atividade
+//import Foundation
+//
+//let numeros = [10, -5, 7, -3, 0, 12, -8, 9, 14, -1, 6, -4, 3, 2, -7, 11, -2, 8, 5, -6]
+//
+//func contarParesImpares(_ numeros: [Int]) async -> (pares: Int, impares: Int) {
+//    try? await Task.sleep(for: .seconds(5))
+//    let pares = numeros.filter { $0 % 2 == 0 }.count
+//    let impares = numeros.count - pares
+//    return (pares, impares)
+//}
+//
+//func contarPositivosNegativos(_ numeros: [Int]) async -> (positivos: Int, negativos: Int) {
+//    try? await Task.sleep(for: .seconds(7))
+//    let positivos = numeros.filter { $0 >= 0 }.count
+//    let negativos = numeros.filter { $0 < 0 }.count
+//    return (positivos, negativos)
+//}
+//
+//Task {
+//    await withTaskGroup(of: Void.self) { group in
+//
+//        group.addTask {
+//            let resultado = await contarParesImpares(numeros)
+//            print("Pares: \(resultado.pares), Ímpares: \(resultado.impares)")
+//        }
+//
+//        group.addTask {
+//            let resultado = await contarPositivosNegativos(numeros)
+//            print("Positivos: \(resultado.positivos), Negativos: \(resultado.negativos)")
+//        }
+//    }
+//
+//    print("Todas as funções terminaram!")
+//}
+
+
+
+
+
+
+
+/*LISTA 04 - PROTOCOLS, GENERICS e STRUCTS*/
+protocol Conta {
+    var id: Int { get }
+    var nome: String { get }
+    var saldo: Double { get set }
+}
+
+struct ContaPF: Conta {
+    let id: Int
+    var nome: String
+    var saldo: Double
+    var cpf: String
+}
+
+struct ContaPJ: Conta {
+    let id: Int
+    var nome: String
+    var saldo: Double
+    var cnpj: String
+}
+
+struct ContaCRUD<T: Conta> {
+
+    private var lista: [T] = []
+
+    mutating func cadastrar(conta: T)  -> Void {
+        lista.append(conta)
+        print("✅ Conta cadastrada: \(conta.nome)")
+    }
+
+    func listar() -> [T] {
+        return lista
+    }
+
+    mutating func alterar(id: Int, novaConta: T)  -> Void {
+        if let index = lista.firstIndex(where: { $0.id == id }) {
+            lista[index] = novaConta
+            print("✏️ Conta alterada com sucesso!")
+        } else {
+            print("❌ Conta não encontrada.")
+        }
+    }
+
+    mutating func remover(id: Int) -> Void {
+        lista.removeAll { $0.id == id }
+        print("🗑️ Conta removida.")
+    }
+}
+
+var crudPF = ContaCRUD<ContaPF>()
+var crudPJ = ContaCRUD<ContaPJ>()
+
+// Criando contas
+let pf1 = ContaPF(id: 1, nome: "Felipe", saldo: 1000, cpf: "123")
+let pj1 = ContaPJ(id: 1, nome: "Empresa X", saldo: 5000, cnpj: "999")
+
+// Cadastrar
+crudPF.cadastrar(conta: pf1)
+crudPJ.cadastrar(conta: pj1)
+
+// Listar
+print("\n📋 Contas PF:")
+crudPF.listar().forEach {
+    print("\($0.nome) | CPF: \($0.cpf) | Saldo: \($0.saldo)")
+}
+
+print("\n📋 Contas PJ:")
+crudPJ.listar().forEach {
+    print("\($0.nome) | CNPJ: \($0.cnpj) | Saldo: \($0.saldo)")
+}
+
+// Alterar
+let pfAtualizado = ContaPF(id: 1, nome: "Felipe Silva", saldo: 2000, cpf: "123")
+crudPF.alterar(id: 1, novaConta: pfAtualizado)
+
+// Remover
+crudPJ.remover(id: 1)
