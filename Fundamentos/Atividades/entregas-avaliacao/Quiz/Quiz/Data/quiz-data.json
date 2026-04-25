@@ -1,0 +1,113 @@
+[
+  {
+    "id": "1",
+    "name": "Conhecimentos Gerais",
+    "icon": "globe.americas",
+    "questions": [
+      {
+        "text": "Qual é o maior país do mundo em área?",
+        "options": ["Estados Unidos", "Rússia", "China", "Canadá"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "text": "Qual é a capital do Japão?",
+        "options": ["Pequim", "Seul", "Tóquio", "Bangkok"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "text": "Qual é o elemento químico mais abundante no universo?",
+        "options": ["Oxigênio", "Carbono", "Hélio", "Hidrogênio"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "text": "Quem pintou a obra 'Mona Lisa'?",
+        "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "text": "Em que ano o homem pisou na Lua pela primeira vez?",
+        "options": ["1965", "1969", "1971", "1959"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "text": "Qual é o maior oceano da Terra?",
+        "options": ["Oceano Atlântico", "Oceano Índico", "Oceano Ártico", "Oceano Pacífico"],
+        "correctAnswerIndex": 3
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Swift & iOS",
+    "icon": "applelogo",
+    "questions": [
+      {
+        "text": "Qual estrutura de layout empilha itens verticalmente?",
+        "options": ["HStack", "ZStack", "VStack", "Group"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "text": "Qual keyword é usada para criar uma variável mutável?",
+        "options": ["let", "var", "const", "mut"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "text": "Qual view é comumente usada para criar uma lista de rolagem no SwiftUI?",
+        "options": ["Stack", "List", "Array", "Queue"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "text": "Como se chama o gerenciador de pacotes oficial da Apple integrado ao Xcode?",
+        "options": ["CocoaPods", "Carthage", "Swift Package Manager", "npm"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "text": "Qual modificador é usado para alterar a cor de fundo de uma view no SwiftUI?",
+        "options": ["foregroundColor", "fill", "tint", "background"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "text": "O que significa a sigla MVC no desenvolvimento iOS tradicional?",
+        "options": ["Model-View-Controller", "Main-View-Component", "Model-Visual-Controller", "Multiple-View-Core"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Vôlei",
+    "icon": "figure.volleyball",
+    "questions": [
+      {
+        "text": "Quantos jogadores de cada time ficam em quadra durante uma partida de vôlei?",
+        "options": ["5", "7", "6", "8"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "text": "Qual é a pontuação máxima padrão para vencer um set no vôlei de quadra (sem necessidade de vantagem)?",
+        "options": ["21 pontos", "25 pontos", "15 pontos", "30 pontos"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "text": "Como se chama o jogador especializado em defesa que atua com um uniforme de cor diferente?",
+        "options": ["Líbero", "Levantador", "Oposto", "Ponteiro"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "text": "Qual é o limite de toques na bola que uma equipe pode dar antes de passá-la para o lado adversário (excluindo o toque no bloqueio)?",
+        "options": ["2 toques", "4 toques", "3 toques", "5 toques"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "text": "Em qual país o esporte vôlei foi inventado?",
+        "options": ["Brasil", "Inglaterra", "França", "Estados Unidos"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "text": "Como é chamado o set de desempate, disputado caso a partida fique empatada em 2 a 2?",
+        "options": ["Golden Set", "Tie-break", "Final Set", "Match Point"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  }
+]
